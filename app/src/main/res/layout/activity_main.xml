@@ -21,66 +21,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/counter"
-        android:layout_width="62dp"
+        android:layout_width="75dp"
         android:layout_height="57dp"
-        android:background="#F3D12A"
-        android:ems="10"
+        android:layout_margin="10dp"
+        android:background="#D65454"
         android:gravity="center"
-        android:inputType="textPersonName"
-        android:text="30s"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
-    <EditText
-        android:id="@+id/timer"
-        android:layout_width="58dp"
-        android:layout_height="51dp"
-        android:background="#F36363"
-        android:ems="10"
-        android:gravity="center|center_horizontal"
-        android:inputType="textPersonName"
         android:text="0/0"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintHorizontal_bias="0.976"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.487" />
 
-    <EditText
-        android:id="@+id/SumTV"
-        android:layout_width="174dp"
-        android:layout_height="61dp"
-        android:ems="10"
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="75dp"
+        android:layout_height="57dp"
+        android:background="#DD8C45"
         android:gravity="center"
-        android:inputType="textPersonName"
-        android:text="31+12"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toTopOf="@+id/startButton"
-        app:layout_constraintEnd_toStartOf="@+id/timer"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toEndOf="@+id/counter"
+        android:text="0s"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintVertical_bias="0.487" />
+
+    <TextView
+        android:id="@+id/SumTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toStartOf="@+id/counter"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toEndOf="@+id/timer"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.338" />
 
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayout"
-        android:layout_width="360dp"
-        android:layout_height="416dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="342dp"
+        android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SumTV"
-        app:layout_constraintVertical_bias="0.050000012">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32999998">
 
         <Button
             android:id="@+id/answer1"
@@ -95,7 +90,9 @@
             app:layout_columnWeight="1"
             app:layout_gravity="fill"
             app:layout_row="0"
-            app:layout_rowWeight="1" />
+            app:layout_rowWeight="1"
+
+            />
 
         <Button
             android:id="@+id/answer2"
@@ -144,20 +141,31 @@
 
     </androidx.gridlayout.widget.GridLayout>
 
-    <EditText
+    <TextView
         android:id="@+id/correctTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="center"
-        android:inputType="textPersonName"
-        android:text=""
-        android:textColor="#5A5A5A"
-        android:textSize="40sp"
+        android:text="Correct!"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-        app:layout_constraintVertical_bias="0.338" />
+        app:layout_constraintVertical_bias="0.117" />
+
+    <Button
+        android:id="@+id/playAgainButton"
+        android:layout_width="248dp"
+        android:layout_height="55dp"
+        android:onClick="playAgain"
+        android:text="Play Again"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+        app:layout_constraintVertical_bias="0.625" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,6 +27,37 @@ public class MainActivity extends AppCompatActivity {
     int numOfCorrectQuestions = 0;
     TextView counter;
     TextView timer;
+    Button playAgainButton;
+
+    public void playAgain(View view) {
+        score = 0;
+        numberOfQuestions = 0;
+
+        timer.setText("30s");
+        counter.setText("0/0");
+        correctTextView.setText("");
+        playAgainButton.setVisibility(View.INVISIBLE);
+
+        new CountDownTimer(5100, 1000) {
+
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timer.setText(String.valueOf(millisUntilFinished/1000) + "s");
+            }
+
+            @Override
+            public void onFinish() {
+                playAgainButton.setVisibility(View.VISIBLE);
+                timer.setText("0s");
+                correctTextView.setText("Your Score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
+
+
+            }
+
+        }.start();
+
+    }
+
 
     public void generateQuestion()  {
         Random rand = new Random();
@@ -95,25 +126,34 @@ public class MainActivity extends AppCompatActivity {
         answer3 = (Button) findViewById(R.id.answer3);
         answer4 = (Button) findViewById(R.id.answer4);
         correctTextView = (TextView) findViewById(R.id.correctTextView);
-        counter = (TextView) findViewById(R.id.counter);
-        timer = (TextView)findViewById(R.id.timer);
+        timer = (TextView) findViewById(R.id.timer);
+        counter = (TextView)findViewById(R.id.counter);
+        playAgainButton = (Button)findViewById(R.id.playAgainButton);
 
         generateQuestion();
+        playAgain(findViewById(R.id.playAgainButton));
 
-        new CountDownTimer(30100, 1000) {
+        new CountDownTimer(5100, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                timer.setText(String.valueOf(millisUntilFinished/1000));
+                timer.setText(String.valueOf(millisUntilFinished/1000) + "s");
             }
 
             @Override
             public void onFinish() {
 
+                timer.setText("0s");
+                correctTextView.setText("Your Score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
+
+
             }
-        };
+
+        }.start();
 
     }
+
+
 }
 
 

@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         correctTextView.setText("");
         playAgainButton.setVisibility(View.INVISIBLE);
 
-        new CountDownTimer(5100, 1000) {
+        new CountDownTimer(30100, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         generateQuestion();
         playAgain(findViewById(R.id.playAgainButton));
 
-        new CountDownTimer(5100, 1000) {
+        new CountDownTimer(30100, 1000) {
 
             @Override
             public void onTick(long millisUntilFinished) {
